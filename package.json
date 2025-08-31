@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky",
+    "prettier": "prettier --write .",
+    "eslint": "eslint . --ext .ts",
+    "eslint-fix": "eslint . --fix"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OlegMenjok/PlaywrightAQA.git"
@@ -18,5 +23,10 @@
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.3.0"
+  },
+  "dependencies": {
+    "eslint": "^9.34.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2"
   }
 }
