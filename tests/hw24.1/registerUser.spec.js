@@ -57,7 +57,7 @@ test.describe('Register user', () => {
 
     test('Register new user | negative | Invalid password', async ({ page }) => {
     // Arrange
-    await page.getByRole('textbox', { name: 'Password', exact: true }).fill(`12345`);
+    await page.getByRole('textbox', { name: 'Password', exact: true }).fill(`12345`)
 
     // Act
     await page.getByText('Registration×').click()
