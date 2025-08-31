@@ -41,6 +41,7 @@ test.describe('Register user', () => {
     // Assert
     await expect(page.getByText('Name required')).toBeVisible();
   });
+
   test('Register new user | negative | Invalid last name', async ({ page }) => {
     // Arrange
     await page.fill('#signupLastName', 'm');
@@ -53,6 +54,7 @@ test.describe('Register user', () => {
       page.getByText('Last name has to be from 2 to 20 characters long'),
     ).toBeVisible();
   });
+  
   test('Register new user | negative | Invalid email', async ({ page }) => {
     // Arrange
     await page
