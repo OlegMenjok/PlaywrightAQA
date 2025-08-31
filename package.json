@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "prettier": "prettier --write .",
+    "eslint": "eslint . --ext .ts",
+    "eslint-fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OlegMenjok/PlaywrightAQA.git",
-    "prettier": "npx prettier --write .",
-    "eslint": "eslint . --ext .ts",
-    "eslint-fix": "eslint . --fix",
-    "prepare": "husky install"
+    "url": "git+https://github.com/OlegMenjok/PlaywrightAQA.git"
   },
   "keywords": [],
   "author": "",
