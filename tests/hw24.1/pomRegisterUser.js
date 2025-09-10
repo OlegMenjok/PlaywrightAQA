@@ -3,11 +3,21 @@ export class RegisterPage {
     this.page = page;
     this.signupName = page.locator('#signupName');
     this.signupLastName = page.locator('#signupLastName');
-    this.signupEmail = page.getByRole('textbox', { name: 'Name Last name Email' });
-    this.password = page.getByRole('textbox', { name: 'Password', exact: true });
-    this.reenterPassword = page.getByRole('textbox', { name: 'Re-enter password' });
+    this.signupEmail = page.getByRole('textbox', {
+      name: 'Name Last name Email',
+    });
+    this.password = page.getByRole('textbox', {
+      name: 'Password',
+      exact: true,
+    });
+    this.reenterPassword = page.getByRole('textbox', {
+      name: 'Re-enter password',
+    });
     this.registerButton = page.getByRole('button', { name: 'Register' });
-    this.registrationMessage = page.locator('div').filter({ hasText: 'Registration complete' }).nth(3);
+    this.registrationMessage = page
+      .locator('div')
+      .filter({ hasText: 'Registration complete' })
+      .nth(3);
     this.registrationCloseButton = page.getByText('Registration×');
   }
 
