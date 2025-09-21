@@ -15,19 +15,6 @@ export const test = base.extend({
 
     await use(garagePage);
   },
-
-  // userGaragePage: async({page}, use) => {
-  //     const signInPage = new RegisterPage(page);
-  //     await signInPage.login()
-  //     await signInPage.fillSignInEmail('testaqa@gmail.com');
-  //     await signInPage.fillPassword('Qwerty12345');
-  //     await signInPage.loginSubmitButton();
-
-  //     await baseExpect(page).toHaveURL(/garage/)
-  //     const garagePage = new GaragePage(page)
-
-  //     await use(garagePage)
-  // }
 });
 
 export const expect = baseExpect;
