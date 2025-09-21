@@ -6,6 +6,9 @@ export class RegisterPage {
     this.signupEmail = page.getByRole('textbox', {
       name: 'Name Last name Email',
     });
+    this.signInEmail = page.getByRole('textbox', {
+      name: 'Email',
+    });
     this.password = page.getByRole('textbox', {
       name: 'Password',
       exact: true,
@@ -14,6 +17,7 @@ export class RegisterPage {
       name: 'Re-enter password',
     });
     this.registerButton = page.getByRole('button', { name: 'Register' });
+    this.loginButton = page.getByRole('button', { name: 'Login' });
     this.registrationMessage = page
       .locator('div')
       .filter({ hasText: 'Registration complete' })
@@ -24,6 +28,11 @@ export class RegisterPage {
   async navigate() {
     await this.page.goto('/');
     await this.page.getByRole('button', { name: 'Sign up' }).click();
+  }
+
+    async login() {
+    await this.page.goto('/');
+    await this.page.getByRole('button', { name: 'Sign in' }).click();
   }
 
   async fillName(name) {
@@ -38,6 +47,10 @@ export class RegisterPage {
     await this.signupEmail.fill(email);
   }
 
+    async fillSignInEmail(email) {
+    await this.signInEmail.fill(email);
+  }
+
   async fillPassword(pass) {
     await this.password.fill(pass);
   }
@@ -48,6 +61,10 @@ export class RegisterPage {
 
   async submit() {
     await this.registerButton.click();
+  }
+
+    async loginSubmitButton() {
+    await this.loginButton.click();
   }
 
   async getRegistrationMessage() {
