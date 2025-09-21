@@ -30,7 +30,7 @@ export class RegisterPage {
     await this.page.getByRole('button', { name: 'Sign up' }).click();
   }
 
-    async login() {
+  async login() {
     await this.page.goto('/');
     await this.page.getByRole('button', { name: 'Sign in' }).click();
   }
@@ -47,7 +47,7 @@ export class RegisterPage {
     await this.signupEmail.fill(email);
   }
 
-    async fillSignInEmail(email) {
+  async fillSignInEmail(email) {
     await this.signInEmail.fill(email);
   }
 
@@ -63,7 +63,7 @@ export class RegisterPage {
     await this.registerButton.click();
   }
 
-    async loginSubmitButton() {
+  async loginSubmitButton() {
     await this.loginButton.click();
   }
 
