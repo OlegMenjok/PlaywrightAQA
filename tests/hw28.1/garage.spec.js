@@ -1,6 +1,3 @@
-//import { test, expect } from '@playwright/test';
-import { RegisterPage } from '../hw24.1/pomRegisterUser.js';
-import { GaragePage } from '../pageObject/garagePage.js';
 import { test, expect } from '../fixtures/myfixture.js';
 
 test.describe.only('Garage fixture', () => {
