@@ -13,7 +13,7 @@ export const test = base.extend({
     const garagePage = new GaragePage(page);
     await page.goto('/panel/garage');
 
-    await use({garagePage, page});
+    await use({ garagePage, page });
   },
 });
 

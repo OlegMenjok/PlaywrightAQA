@@ -1,22 +1,22 @@
-import { expect, request } from "@playwright/test";
+import { expect, request } from '@playwright/test';
 
 export async function createAuthedApi(baseURL) {
   return await request.newContext({
     baseURL,
     storageState: './state/user-state.json',
     httpCredentials: {
-      username: process.env.AUTH_USER || "",
-      password: process.env.AUTH_PASS || "",
+      username: process.env.AUTH_USER || '',
+      password: process.env.AUTH_PASS || '',
     },
     extraHTTPHeaders: {
-      accept: "application/json",
-      "content-type": "application/json",
+      accept: 'application/json',
+      'content-type': 'application/json',
     },
   });
 }
 
 export async function getValidBrandModel(api) {
-  const brandsRes = await api.get("/api/cars/brands");
+  const brandsRes = await api.get('/api/cars/brands');
   expect(brandsRes.ok(), await brandsRes.text()).toBeTruthy();
   const brands = (await brandsRes.json()).data;
   const brandId = brands[0].id;

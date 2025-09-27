@@ -33,7 +33,7 @@ export default defineConfig({
       username: process.env.HTTP_USER || '',
       password: process.env.HTTP_PASSWORD || '',
     },
-    screenshot: 'on'
+    screenshot: 'on',
   },
 
   /* Configure projects for major browsers */

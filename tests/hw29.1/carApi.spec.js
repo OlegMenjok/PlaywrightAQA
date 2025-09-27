@@ -1,53 +1,52 @@
-import { test, expect, request } from "@playwright/test";
-import {getValidBrandModel, createAuthedApi} from './utils.js';
-import path from "path";
+import { test, expect, request } from '@playwright/test';
+import { getValidBrandModel, createAuthedApi } from './utils.js';
+import path from 'path';
 
-const STORAGE_PATH = path.resolve("state/user-state.json");
+const STORAGE_PATH = path.resolve('state/user-state.json');
 
 // API-context with valid auth (storageState + Basic)
 
-
-test.describe.only("/api/cars POST (create)", () => {
-  test("POST /api/cars | 200", async ({ baseURL }) => {
+test.describe.only('/api/cars POST (create)', () => {
+  test('POST /api/cars | 200', async ({ baseURL }) => {
     const api = await createAuthedApi(baseURL);
     const { brandId, modelId } = await getValidBrandModel(api);
 
-    const res = await api.post("/api/cars", {
+    const res = await api.post('/api/cars', {
       data: { carBrandId: brandId, carModelId: modelId, mileage: 23452 },
     });
 
     expect([200, 201]).toContain(res.status());
     const json = await res.json();
 
-    expect(json.status).toBe("ok");
+    expect(json.status).toBe('ok');
 
     await api.delete(`/api/cars/${json.data.id}`);
   });
 
-    test("POST /api/cars | 400 | invalid carId", async ({ baseURL }) => {
+  test('POST /api/cars | 400 | invalid carId', async ({ baseURL }) => {
     const api = await createAuthedApi(baseURL);
     const { brandId, modelId } = await getValidBrandModel(api);
 
-    const res = await api.post("/api/cars", {
+    const res = await api.post('/api/cars', {
       data: { carBrandId: brandId, carModelId: 155, mileage: 23452 },
     });
 
     expect(res.status(), await res.text()).toBe(404);
     const json = await res.json();
-    expect(json.status).toBe("error");
+    expect(json.status).toBe('error');
   });
 
-  test("POST /api/cars | 400 | missing a mileage", async ({ baseURL }) => {
+  test('POST /api/cars | 400 | missing a mileage', async ({ baseURL }) => {
     const api = await createAuthedApi(baseURL);
     const { brandId, modelId } = await getValidBrandModel(api);
 
-    const res = await api.post("/api/cars", {
+    const res = await api.post('/api/cars', {
       data: { carBrandId: brandId, carModelId: modelId },
     });
 
     expect(res.status(), await res.text()).toBe(400);
     const json = await res.json();
-    expect(json.status).toBe("error");
+    expect(json.status).toBe('error');
     expect(String(json.message)).toMatch(/mileage.*required/i);
   });
 });
