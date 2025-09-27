@@ -5,7 +5,7 @@ import path from 'path';
 const STORAGE_PATH = path.resolve('state/user-state.json');
 
 test.describe.only('/api/cars POST (create)', () => {
-  test('POST /api/cars | 200', async ({ baseURL }) => {
+  test('POST /api/cars | 201', async ({ baseURL }) => {
     const api = await createAuthedApi(baseURL);
     const { brandId, modelId } = await getValidBrandModel(api);
 
@@ -13,7 +13,8 @@ test.describe.only('/api/cars POST (create)', () => {
       data: { carBrandId: brandId, carModelId: modelId, mileage: 23452 },
     });
 
-    expect([200, 201]).toContain(res.status());
+    expect(res.status()).toBe(201);
+
     const json = await res.json();
 
     expect(json.status).toBe('ok');
