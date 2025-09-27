@@ -4,8 +4,6 @@ import path from 'path';
 
 const STORAGE_PATH = path.resolve('state/user-state.json');
 
-// API-context with valid auth (storageState + Basic)
-
 test.describe.only('/api/cars POST (create)', () => {
   test('POST /api/cars | 200', async ({ baseURL }) => {
     const api = await createAuthedApi(baseURL);
