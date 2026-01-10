@@ -1,7 +1,7 @@
 import { test, expect } from '../fixtures/myfixture.js';
 
-test.describe.only('Garage fixture', () => {
-  test.only('test', async ({ userGaragePage }) => {
+test.describe('Garage fixture', () => {
+  test('test', async ({ userGaragePage }) => {
     // Arrange
     await userGaragePage.addCarButton.click();
     await userGaragePage.addMillage.fill('1234');
