@@ -4,7 +4,7 @@ import path from 'path';
 
 const STORAGE_PATH = path.resolve('state/user-state.json');
 
-test.describe.only('/api/cars POST (create)', () => {
+test.describe('/api/cars POST (create)', () => {
   test('POST /api/cars | 201', async ({ baseURL }) => {
     const api = await createAuthedApi(baseURL);
     const { brandId, modelId } = await getValidBrandModel(api);
