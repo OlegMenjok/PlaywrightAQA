@@ -3,8 +3,7 @@ import { test, expect } from '../fixtures/myfixture.js';
 const MOCK_NAME = 'AQA';
 const MOCK_LAST_NAME = 'TEST';
 
-test.describe
-  .only('Change credential in the response /api/users/profile', () => {
+test.describe('Change credential in the response /api/users/profile', () => {
     test('test', async ({ userGaragePage }) => {
       const { page } = userGaragePage;
       await page.route('**/api/users/profile', async (route) => {
